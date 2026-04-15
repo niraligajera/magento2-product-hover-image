@@ -1,0 +1,18 @@
+type Query {
+    ethnicRolloverConfig: EthnicRollOverConfig @doc(description: "Retrieve configuration settings for Ethnic RollOver Image module") @resolver(class: "Ethnic\\RollOverImage\\Model\\Resolver\\ConfigResolver")
+}
+
+type EthnicRollOverConfig @doc(description: "Defines the precise configuration settings for RollOver Image") {
+    enabled: Boolean @doc(description: "Is RollOver Image globally enabled")
+    animation: Boolean @doc(description: "Is fade animation enabled")
+    animation_duration: String @doc(description: "Fade animation duration in seconds")
+    lazy_load: Boolean @doc(description: "Is IntersectionObserver Lazy Load enabled")
+    image_role: String @doc(description: "The targeted role for the hover image")
+    enabled_sections: [String] @doc(description: "The view list array of enabled blocks")
+}
+
+interface ProductInterface {
+    ethnic_rollover_image(
+        image_id: String = "category_page_grid" @doc(description: "The view.xml image ID used to resolve resizing constraints.")
+    ): String @doc(description: "Returns the dynamically resolved RollOver Image URL for the product.") @resolver(class: "Ethnic\\RollOverImage\\Model\\Resolver\\RollOverImage")
+}

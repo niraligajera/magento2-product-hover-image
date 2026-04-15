@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Ethnic
+ * @copyright Copyright (c) Ethnic
+ * @package Ethnic_RollOverImage
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <ethnic_rollover>
+            <general>
+                <enable>0</enable>
+                <image_role>ethnic_rollover_image</image_role>
+                <sections>
+                    category_page_grid,
+                    category_page_list,
+                    product_small_image,
+                    related_products_list,
+                    upsell_products_list
+                </sections>
+                <animation>1</animation>
+                <animation_duration>0.5</animation_duration>
+                <lazy_load>1</lazy_load>
+            </general>
+        </ethnic_rollover>
+    </default>
+</config>

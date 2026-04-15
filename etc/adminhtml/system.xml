@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Ethnic
+ * @copyright Copyright (c) Ethnic
+ * @package Ethnic_RollOverImage
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="ethnic" translate="label" sortOrder="10">
+            <label>Ethnic</label>
+        </tab>        
+        <section id="ethnic_rollover" translate="label" type="text" sortOrder="10" showInDefault="1"
+                 showInWebsite="1" showInStore="1">
+            <label>RollOver Image</label>
+            <tab>ethnic</tab>
+            <resource>Ethnic_RollOverImage::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1"
+                   showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enable RollOver Image</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="image_role" translate="label" type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Product Image Role</label>
+                    <source_model>Ethnic\RollOverImage\Model\Config\Source\ImageRole</source_model>
+                    <comment>Select the image role to be used as the rollover image.</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                  <field id="role_position" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Role Position</label>
+                    <source_model>Ethnic\RollOverImage\Model\Config\Source\RolePosition</source_model>
+                    <comment>Select the role position from 1 to 3.</comment>
+                </field>
+                <field id="sections" translate="label" type="multiselect" sortOrder="30" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Enabled Sections</label>
+                    <source_model>Ethnic\RollOverImage\Model\Config\Source\Section</source_model>
+                    <can_be_empty>1</can_be_empty>
+                    <comment>Select the sections where the rollover image should be active.</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="animation" translate="label" type="select" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Fade In/Out Animation</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enable fade in/out effect on image hover.</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+                <field id="animation_duration" translate="label" type="select" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Animation Duration</label>
+                    <source_model>Ethnic\RollOverImage\Model\Config\Source\AnimationDuration</source_model>
+                    <comment>Select the duration of the image fade animation.</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                        <field id="animation">1</field>
+                    </depends>
+                </field>
+                <field id="lazy_load" translate="label" type="select" sortOrder="60" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Lazy Load Hover Images</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Load the rollover images only after the full page finishes loading.</comment>
+                    <depends>
+                        <field id="enable">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

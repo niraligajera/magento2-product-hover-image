@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Ethnic
+ * @copyright Copyright (c) Ethnic
+ * @package Ethnic_RollOverImage
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Block\Product\ImageFactory">
+        <plugin name="ethnic_rollover_image_factory_plugin"
+                type="Ethnic\RollOverImage\Plugin\Catalog\Block\Product\ImageFactoryPlugin"
+                sortOrder="10"/>
+    </type>
+    <type name="Hyva\Theme\ViewModel\ProductListItem">
+        <plugin name="ethnic_rollover_image_hyva_list_item_plugin" 
+                type="Ethnic\RollOverImage\Plugin\Hyva\ProductListItemPlugin" 
+                sortOrder="10"/>
+    </type>
+</config>
